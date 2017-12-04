@@ -17,12 +17,12 @@ class Sidebar extends Component {
       showIconDescription: false
     }
     this.icons = [
-      'home',
-      'info_outline',
-      'hearing',
-      'book',
-      'forum',
-      'email'
+      { title: 'home', color: 'red'},
+      { title: 'info_outline', color: 'green'},
+      { title: 'hearing', color: 'blue'},
+      { title: 'book', color: 'purple'},
+      { title: 'forum', color: 'yellow'},
+      { title: 'email', color: 'coral'}
     ];
   }
   toggleIconDescription = () => {
@@ -32,19 +32,22 @@ class Sidebar extends Component {
     const s =     strings.en,
                   { children, isTablet } = this.props,
                   { showIconDescription } = this.state;
-
     return (
         <SidebarContainer
           onMouseOver={ this.toggleIconDescription }
           onMouseOut={ this.toggleIconDescription }>
             { this.icons.map(e =>
                 <FlexColumn
-                  key={e}
+                  key={e.title}
                   margin={isTablet ? null : '20px 0 0 0'}>
-                    <Icon className='material-icons'>{ e }</Icon>
+                    <Icon
+                      color={ showIconDescription ? e.color : color.iconColor }
+                      className='material-icons'>
+                        { e.title }
+                    </Icon>
                     {!isTablet &&
-                        <IconDescription color={showIconDescription ? 'red' : 'transparent' }>
-                          { e }
+                        <IconDescription color={showIconDescription ? color.primaryTextNegative : 'transparent' }>
+                          { e.title }
                         </IconDescription>
                     }
                 </FlexColumn>
@@ -82,6 +85,7 @@ const SidebarContainer = styled.nav`
 
 const Icon = styled.i`
   font-size: 40px;
+  color: ${props => props.color };
   ${media.tabletSmall`
       font-size: 28px;
   `}
@@ -94,7 +98,7 @@ const IconDescription = styled.p`
   margin: 0;
   font-size: 14px;
   padding: 8px;
-  color: ${props => props.color}
+  color: ${props => props.color};
   ${media.tabletSmall`
       font-size: 0px;
   `}

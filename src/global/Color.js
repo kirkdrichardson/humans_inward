@@ -1,5 +1,8 @@
 module.exports = {
-  headerBackground: "#222",
-  sidebarBackground: "#666",
-  mainContentBackground: 'yellow'
+  headerBackground: "#0F292F",
+  sidebarBackground: "#0F292F",
+  mainContentBackground: '#fafafa',
+  iconColor: '#fafafa',
+  primaryTextNegative: '#fafafa',
+  secondaryTextNegative: '#CCC'
 }
