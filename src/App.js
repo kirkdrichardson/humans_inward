@@ -9,6 +9,7 @@ import Sidebar from './comp/Sidebar.js';
 
 import strings from './global/Strings.js';
 import style from './global/Style.js';
+import color from './global/Color.js';
 
 
 export default class App extends Component {
@@ -28,27 +29,29 @@ export default class App extends Component {
 }
 
 const MainContainer = styled.div`
-  height: 100%;
-  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #fafafa;
   color: #fff;
   position: fixed;
-  font-family: ${style.font.fontStack}
+  font-family: ${style.font.fontStack};
 `;
 
 const FluidContainer = styled.main`
   position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: red;
   top: 100px;
   left: 80px;
+  right: 0;
+  bottom: 0;
+  background-color: ${color.mainContentBackground};
   ${media.tabletSmall`
-      top: 110px;
+      top: 106px;
       left: 0;
       height: 100%;
   `}
   ${media.phone`
-      top: 66px;
+      top: 60px;
   `}
 `;
