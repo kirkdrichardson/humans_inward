@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import withSizes from 'react-sizes';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { media, sizes } from './../global/styleUtils.js';
 import { FlexColumn } from './../asset/styledComponents.js';
@@ -14,29 +14,30 @@ class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showIconDescription: false
+      showIconDescription: false,
+      currentTab: 'home'
     }
-    this.icons = [
-      { title: 'home', color: 'red'},
-      { title: 'info_outline', color: 'green'},
-      { title: 'hearing', color: 'blue'},
-      { title: 'book', color: 'purple'},
-      { title: 'forum', color: 'yellow'},
-      { title: 'email', color: 'coral'}
-    ];
+
   }
   toggleIconDescription = () => {
     this.setState({ showIconDescription: !this.state.showIconDescription });
   }
   render() {
-    const s =     strings.en,
+    const s =     strings.en.sidebar,
                   { children, isTablet } = this.props,
                   { showIconDescription } = this.state;
     return (
         <SidebarContainer
           onMouseOver={ this.toggleIconDescription }
           onMouseOut={ this.toggleIconDescription }>
-            { this.icons.map(e =>
+            { [
+                { title: 'home', color: 'red', text: s.home },
+                { title: 'info_outline', color: 'green', text: s.about },
+                { title: 'hearing', color: 'blue', text: s.podcast },
+                { title: 'book', color: 'purple', text: s.blog },
+                { title: 'forum', color: 'yellow', text: s.forum },
+                { title: 'email', color: 'coral', text: s.contact }
+              ].map(e =>
                 <FlexColumn
                   key={e.title}
                   margin={isTablet ? null : '20px 0 0 0'}>
@@ -47,7 +48,7 @@ class Sidebar extends Component {
                     </Icon>
                     {!isTablet &&
                         <IconDescription color={showIconDescription ? color.primaryTextNegative : 'transparent' }>
-                          { e.title }
+                          { e.text }
                         </IconDescription>
                     }
                 </FlexColumn>
@@ -94,10 +95,28 @@ const Icon = styled.i`
   `}
 `;
 
+const rotate360 = keyframes`
+	from {
+		margin-right: 160px;
+	}
+
+  20% {
+    margin-right: 24px;
+  }
+
+	to {
+		margin-right: 0px;
+	}
+`;
+
+
 const IconDescription = styled.p`
   margin: 0;
   font-size: 14px;
   padding: 8px;
+  ${SidebarContainer}:hover & {
+    animation: ${rotate360} 1s linear;
+  }
   color: ${props => props.color};
   ${media.tabletSmall`
       font-size: 0px;

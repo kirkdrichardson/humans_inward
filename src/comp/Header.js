@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
   width: 100%;
   height: 100px;
   background-color: ${color.headerBackground};
-  color: ${color.primaryText}
+  color: ${color.primaryTextNegative};
   position: fixed;
   display: flex;
   flex-flow: row wrap;

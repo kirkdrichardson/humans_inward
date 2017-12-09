@@ -40,6 +40,7 @@ const MainContainer = styled.div`
 `;
 
 const FluidContainer = styled.main`
+  color: ${color.primaryText};
   position: absolute;
   top: 100px;
   left: 80px;
