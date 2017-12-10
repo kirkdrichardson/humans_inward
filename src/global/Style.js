@@ -1,6 +1,8 @@
 module.exports = {
   font: {
-    fontStack: "'Open Sans', sans-serif",
-    fontStackHeader: "'Open Sans Condensed', sans-serif"
-  }
+    main: "'Open Sans', sans-serif",
+    header: "'Open Sans Condensed', sans-serif",
+    accent: "'Josefin Sans', sans-serif"
+  },
+  fluidContainerPadding: '40px'
 }

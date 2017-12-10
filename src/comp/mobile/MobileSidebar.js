@@ -39,28 +39,26 @@ class Sidebar extends Component {
                 { title: 'info_outline', color: c.red, text: s.about },
                 { title: 'email', color: c.green, text: s.contact }
               ].map(e =>
-                <NavLink>
-                  <FlexColumn
-                    key={e.title}
-                    margin={isTablet ? null : '20px 0 0 0'}>
-                      <Icon
-                        color={ showIconDescription ? e.color : color.iconColor }
-                        className='material-icons'>
-                          { e.title }
-                      </Icon>
-                      {!isTablet &&
-                          <IconDescription color={showIconDescription ? color.primaryTextNegative : 'transparent' }>
-                            { e.text }
-                          </IconDescription>
-                      }
-                  </FlexColumn>
-                </NavLink>
+                <FlexColumn
+                  key={e.title}
+                  margin={isTablet ? null : '20px 0 0 0'}>
+                    <Icon
+                      color={ showIconDescription ? e.color : color.iconColor }
+                      className='material-icons'>
+                        { e.title }
+                    </Icon>
+                    {!isTablet &&
+                        <IconDescription color={showIconDescription ? color.primaryTextNegative : 'transparent' }>
+                          { e.text }
+                        </IconDescription>
+                    }
+                </FlexColumn>
+
               )}
         </SidebarContainer>
     );
   }
 }
-
 
 const SidebarContainer = styled.nav`
   position: fixed;
@@ -88,10 +86,6 @@ const SidebarContainer = styled.nav`
     `}
 `;
 
-const NavLink = styled.div`
-
-`;
-
 const Icon = styled.i`
   font-size: 40px;
   color: ${props => props.color };
@@ -115,7 +109,9 @@ const slideIn = keyframes`
     margin-top: 8px;
   }
 
-	to { margin: 0px; }
+	to {
+		margin: 0px;
+	}
 `;
 
 

@@ -6,6 +6,7 @@ import { media } from './global/styleUtils.js'
 
 import Header from './comp/Header.js';
 import Sidebar from './comp/Sidebar.js';
+import Home from './comp/home/Home.js';
 
 import strings from './global/Strings.js';
 import style from './global/Style.js';
@@ -20,7 +21,9 @@ export default class App extends Component {
         <Header />
         <Sidebar />
         <FluidContainer>
-          hello
+        { /* TODO - move rows to home component */}
+          <Home />
+
         </FluidContainer>
 
       </MainContainer>
@@ -36,16 +39,20 @@ const MainContainer = styled.div`
   background-color: #fafafa;
   color: #fff;
   position: fixed;
-  font-family: ${style.font.fontStack};
+  font-family: ${style.font.main};
+  color: ${color.primaryText};
 `;
 
 const FluidContainer = styled.main`
+border: 1px dashed coral;
+
   color: ${color.primaryText};
   position: absolute;
   top: 100px;
   left: 80px;
   right: 0;
   bottom: 0;
+  padding: ${style.fluidContainerPadding};
   background-color: ${color.mainContentBackground};
   ${media.tabletSmall`
       top: 106px;
