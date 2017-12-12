@@ -13,7 +13,12 @@ export default class Home extends Component {
 
   render() {
     return(
-      <PodcastRow data={PodcastObjects} />
+      <div>
+        <PodcastRow data={PodcastObjects} />
+        <PodcastRow data={PodcastObjects} />
+        <PodcastRow data={PodcastObjects} />
+      </div>
+
     );
   }
 }

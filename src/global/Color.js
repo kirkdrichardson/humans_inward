@@ -2,7 +2,7 @@ module.exports = {
   primaryBackground: '#222',
   headerBackground: "#222",
   sidebarBackground: "#222",
-  mainContentBackground: '#222',
+  mainContentBackground: '#282828',
   iconColor: '#757575',
   primaryTextNegative: '#fafafa',
   secondaryTextNegative: 'gray',

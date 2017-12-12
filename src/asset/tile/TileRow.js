@@ -31,12 +31,10 @@ const Title = styled.h2`
 `;
 
 const Row = styled.div`
+border: 1px dashed coral;
   display: flex;
   flex-flow: row wrap;
-  border: 2px solid ${color.borderColor};
   border-radius: 5px;
-  background-color: ${color.tile.rowBackground};
-  padding: 20px;
 `;
 
 export default TileRow;

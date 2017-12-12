@@ -39,9 +39,8 @@ class Sidebar extends Component {
                 { title: 'info_outline', color: c.red, text: s.about },
                 { title: 'email', color: c.green, text: s.contact }
               ].map(e =>
-                <NavLink>
+                <NavLink key={e.title}>
                   <FlexColumn
-                    key={e.title}
                     margin={isTablet ? null : '20px 0 0 0'}>
                       <Icon
                         color={ showIconDescription ? e.color : color.iconColor }
@@ -89,7 +88,8 @@ const SidebarContainer = styled.nav`
 `;
 
 const NavLink = styled.div`
-
+  cursor: pointer;
+  border: 1px dashed coral;
 `;
 
 const Icon = styled.i`
