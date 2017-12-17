@@ -22,6 +22,8 @@ module.exports = {
     red: '#cc3e39',
     orange: '#f2902e',
     black: '#12110E',
-    white: '#fefefe'
+    white: '#fefefe',
+    brown: '#86502a',
+    burlywood: '#deb887'
   }
 }
