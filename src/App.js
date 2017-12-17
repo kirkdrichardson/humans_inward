@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-
+import { Component } from 'react';
 import styled from 'styled-components';
+import { Provider } from 'mobx-react';
 
 import { media } from './global/styleUtils.js'
 
@@ -12,21 +12,25 @@ import strings from './global/Strings.js';
 import style from './global/Style.js';
 import color from './global/Color.js';
 
+import NavigationStore from './store/NavigationStore.js';
+
 
 export default class App extends Component {
   render() {
     const s = strings.en;
     return (
-      <MainContainer>
-        <Header />
-        <Sidebar />
-        <FluidContainer>
-        { /* TODO - move rows to home component */}
-          <Home />
+      <Provider NavigationStore={NavigationStore}>
+        <MainContainer>
+          <Header />
+          <Sidebar />
+          <FluidContainer>
+          { /* TODO - move rows to home component */}
+            <Home />
 
-        </FluidContainer>
+          </FluidContainer>
 
-      </MainContainer>
+        </MainContainer>
+      </Provider>
     );
   }
 }

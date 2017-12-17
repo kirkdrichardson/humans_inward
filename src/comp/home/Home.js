@@ -16,7 +16,6 @@ export default class Home extends Component {
   }
 
   render() {
-    console.log(Podcasts)
     return(
       <div>
         <PodcastRow data={Podcasts} />
