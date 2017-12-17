@@ -31,23 +31,28 @@ export default class App extends Component {
   }
 }
 
+// TODO - expand container to fill
+
 const MainContainer = styled.div`
+position: absolute;
+
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #fafafa;
+  background-color: ${color.primaryBackground};
   color: #fff;
-  position: fixed;
   font-family: ${style.font.main};
   color: ${color.primaryText};
+  overflow-y: scroll;
 `;
 
 const FluidContainer = styled.main`
-border: 1px dashed coral;
+border: 1px dashed green;
 
+  overflow: auto;
   color: ${color.primaryText};
-  position: absolute;
+  position: fixed;
   top: 100px;
   left: 80px;
   right: 0;

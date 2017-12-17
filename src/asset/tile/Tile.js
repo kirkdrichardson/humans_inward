@@ -12,7 +12,7 @@ import color from './../../global/Color.js';
 
 const Tile = ({ title, description, imgSrc, imgLabel, onClick }) => {
   return (
-      <Container>
+      <Container onClick={onClick}>
         <TileTitle>{ title }</TileTitle>
         <TileBody
           description={description}
@@ -40,6 +40,7 @@ border: 1px dashed red;
   border-radius: 5px;
   box-sizing: border-box;
   box-shadow: $${color.boxShadow} 5px 5px 10px;
+  cursor: pointer;
 `;
 
 export default Tile;
