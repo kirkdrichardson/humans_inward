@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { inject, observer } from 'mobx-react';
 
 import IconTile from './../../asset/tile/IconTile';
-import TileData from './../../data/DiscoverCategoryTiles';
+import TileData from './../../data/DiscoverCategoryTiles.js';
+import Category from './../../comp/category/Category.js';
 
 import color from './../../global/Color';
 
@@ -21,6 +22,7 @@ const Discover = observer(props => {
     navigationStore.fetchPodcastsByTopic(e.currentTarget.id);
     console.log('fetched podcasts by category');
   }
+  // display podcast category cards
   if (!navigationStore.showCategories) {
     return (
       <TileContainer>
@@ -39,16 +41,10 @@ const Discover = observer(props => {
     );
   }
 
+  // if a card is clicked display category view
   if ((navigationStore.showCategories)
       && (navigationStore.podcastsByTopic.length)) {
-        return (
-          <Categories>
-            {
-              navigationStore.podcastsByTopic.map(podcast =>
-                <div>{ podcast.title }</div>
-            )}
-          </Categories>
-        )
+        return <Category podcastArr={navigationStore.filteredPodcasts}/>;
       }
 
 
@@ -68,10 +64,6 @@ const TileContainer = styled.div`
   color: white;
   justify-content: center;
   align-items: center;
-`;
-
-const Categories = styled.div`
-  color: ${color.primaryTextNegative};
 `;
 
 export default Discover;

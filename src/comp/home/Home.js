@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { inject, observer } from 'mobx-react';
 
-import PodcastArr from './../../data/Podcast.js';
+import PodcastArr from './../../data/PodcastData.js';
 
 import Discover from './Discover.js';
 import PodcastRow from './PodcastRow.js';

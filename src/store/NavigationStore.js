@@ -3,12 +3,31 @@ import { extendObservable, action } from 'mobx';
 class NavigationStore {
   constructor() {
       extendObservable(this, {
+        activeTab: 'discover',
         showDiscover: true,
         showCategories: false,
         showPodcasts: false,
-        podcastsByTopic: []
+        podcastsByTopic: [],
+
+        get filteredPodcasts() {
+          return this.podcastsByTopic.sort((a, b) => {
+            if (Number(a.subscribers) > Number(b.subscribers)) {
+              return -1;
+            }
+            return 1;
+          });
+        }
       });
   }
+
+
+
+  setObservablesToDefault = action(() => {
+    this.showDiscover = true;
+    this.showCategories = false;
+    this.showPodcasts = false;
+    this.podcastsByTopic = [];
+  });
 
   fetchPodcastsByTopic = action(tag => {
     if (tag === undefined) {
