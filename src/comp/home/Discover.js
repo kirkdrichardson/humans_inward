@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { inject, observer } from 'mobx-react';
 
-import IconTile from './../../asset/tile/IconTile.js';
+import IconTile from './../../asset/tile/IconTile';
 
-import TileData from './../../data/DiscoverCategoryTiles.js';
+import TileData from './../../data/DiscoverCategoryTiles';
 
-import color from './../../global/Color.js';
+import color from './../../global/Color';
 
 // const selectColor = (index) => {
 //   const keys = Object.keys(color.rubiks);
@@ -15,21 +15,20 @@ import color from './../../global/Color.js';
 //   return color.rubiks[keys[index] !== 'black' ? keys[index] : keys[2]];
 // }
 
-const Discover = inject("NavigationStore")(observer((props) =>
-  <TileContainer>
+const Discover = inject('NavigationStore')(observer(props =>
+  (<TileContainer>
     {
       TileData.map(e =>
-        <IconTile
+        (<IconTile
           id={e.tag}
           key={e.tag}
           icon={e.icon}
           title={e.title}
-          color={e.color}
-          onClick={(e) => console.log(e.currentTarget.id)}/>
-        )
+          iconColor={e.color}
+          onClick={e => console.log(e.currentTarget.id)}
+        />))
     }
-  </TileContainer>
-));
+   </TileContainer>)));
 
 const CenteredContainer = styled.div`
   display: flex;

@@ -1,26 +1,33 @@
 import React from 'react';
 
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import color from './../../global/Color.js';
-import style from './../../global/Style.js';
+import color from './../../global/Color';
+import style from './../../global/Style';
 
-const IconTile = ({ id, icon, title, color, onClick }) => {
-  return (
-      <Container id={id} onClick={onClick}>
-        <Icon color={color} className='material-icons'>{ icon }</Icon>
-        <Title>{ title }</Title>
-      </Container>
-  );
-
-};
+const IconTile = ({
+  id, icon, title, iconColor, onClick,
+}) => (
+  <Container id={id} onClick={onClick}>
+    <Icon color={iconColor} className="material-icons">{ icon }</Icon>
+    <Title>{ title }</Title>
+  </Container>
+);
 
 IconTile.propTypes = {
   id: PropTypes.string.isRequired,
   icon: PropTypes.string,
   title: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  iconColor: PropTypes.string,
+};
+
+IconTile.defaultProps = {
+  icon: 'favorite_border',
+  title: 'Untitled',
+  onClick: () => new Error('did not recieve onClick Fx'),
+  iconColor: color.rubiks.green,
 };
 
 const Container = styled.div`
@@ -46,7 +53,7 @@ const Container = styled.div`
 const Icon = styled.i`
   color: blue;
   font-size: 110px;
-  color: ${props => props.color ? props.color : color.rubiks.blue };
+  color: ${props => (props.color ? props.color : color.rubiks.blue)};
   opacity: 0.7;
   ${Container}:hover & {
     font-size: 120px;
