@@ -37,6 +37,10 @@ module.exports = {
       radio: 'Radio',
       esoteric: 'Esoteric',
       self: 'Self'
+    },
+    category: {
+      details: 'Details',
+      popular: 'popular'
     }
   }
 };

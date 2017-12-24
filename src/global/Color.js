@@ -25,5 +25,12 @@ module.exports = {
     white: '#fefefe',
     brown: '#86502a',
     burlywood: '#deb887'
+  },
+  alert: {
+    error: {
+      text: '#a94442',
+      background: '#e8bdbd',
+      border: '#CE929A'
+    }
   }
 }

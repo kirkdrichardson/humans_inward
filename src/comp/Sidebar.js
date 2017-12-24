@@ -10,14 +10,14 @@ import strings from './../global/Strings.js';
 import style from './../global/Style.js';
 import color from './../global/Color.js';
 
+import navigationStore from './../store/NavigationStore.js';
+
 class Sidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showIconDescription: false,
-      currentTab: 'home'
+      showIconDescription: false
     }
-
   }
   toggleIconDescription = () => {
     this.setState({ showIconDescription: !this.state.showIconDescription });
@@ -32,19 +32,19 @@ class Sidebar extends Component {
           onMouseOver={ this.toggleIconDescription }
           onMouseOut={ this.toggleIconDescription }>
             { [
-                { title: 'home', color: c.red, text: s.home },
-                { title: 'hearing', color: c.blue, text: s.podcast },
-                { title: 'book', color: c.orange, text: s.blog },
-                { title: 'forum', color: c.yellow, text: s.forum },
-                { title: 'info_outline', color: c.red, text: s.about },
-                { title: 'email', color: c.green, text: s.contact }
+                { id: 'home', icon: 'home', color: c.red, text: s.home },
+                { id: 'discover', icon: 'hearing', color: c.blue, text: s.podcast, func: navigationStore.setObservablesToDefault },
+                { id: 'blog', icon: 'book', color: c.orange, text: s.blog },
+                { id: 'forum', icon: 'forum', color: c.yellow, text: s.forum },
+                { id: 'about', icon: 'info_outline', color: c.red, text: s.about },
+                { id: 'contact', icon: 'email', color: c.green, text: s.contact }
               ].map(e =>
-                <NavLink key={e.title}>
+                <NavLink key={e.id} id={e.id} onClick={e.func}>
                   <FlexColumn margin={isTablet ? null : '20px 0 0 0'}>
                       <Icon
-                        color={ showIconDescription ? e.color : color.iconColor }
+                        color={ navigationStore.activeTab === e.id ? e.color : showIconDescription ? e.color : color.iconColor }
                         className='material-icons'>
-                          { e.title }
+                          { e.icon }
                       </Icon>
                       {!isTablet &&
                           <IconDescription color={showIconDescription ? color.primaryTextNegative : 'transparent' }>
