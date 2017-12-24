@@ -16,13 +16,14 @@ const Podcasts = (function() {
 //     <div>{ timer.elapsedTime }</div>
 // )
 
-const Home = inject("NavigationStore")(observer((props) =>
-  <div>
-    { props.NavigationStore.showDiscover ?
-        <Discover /> :
-        <PodcastRow data={Podcasts} />
-    }
-  </div>
+const Home = inject("NavigationStore")(observer((props) => {
+
+  if (props.NavigationStore.showDiscover) {
+    return <Discover />;
+  }
+
+  return <PodcastRow data={Podcasts} />;
+}
 ));
 
 export default Home;
