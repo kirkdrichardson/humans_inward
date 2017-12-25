@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Modal from './../../asset/modal/Modal.js';
+
 import style from './../../global/Style.js';
 import color from './../../global/Color.js';
 import strings from './../../global/Strings.js';
+import { truncateStr } from './../../util/Formatting.js';
 
  class Podcast extends Component {
    constructor(props) {
@@ -35,15 +38,16 @@ import strings from './../../global/Strings.js';
             <Logo src={podcast.scaled_logo_url ? podcast.scaled_logo_url : podcast.logo_url} />
           </LogoContainer>
           <Column>
-            <Title>{podcast.title}</Title>
+            <Title>{truncateStr(podcast.title, 27)}</Title>
             <DetailsLink onClick={this.toggleDetailedView}>
               {s.details}
             </DetailsLink>
             {
-              showDetails &&
-              <Description>{podcast.description}</Description>
+              // showDetails &&
+              // <Description>{podcast.description}</Description>
             }
           </Column>
+          <Modal showProps={showDetails} />
        </Card>
      );
    }

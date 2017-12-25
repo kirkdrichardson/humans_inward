@@ -62,7 +62,6 @@ class Sidebar extends Component {
 
 const SidebarContainer = styled.nav`
   position: fixed;
-  z-index: 98;
   top: 100px;
   bottom: 0;
   width: 80px;

@@ -9,6 +9,15 @@ class NavigationStore {
         showPodcasts: false,
         podcastsByTopic: [],
 
+
+        // TODO - remove duplicate podcasts
+        // get pocastArrWithoutDuplicates() {
+        //   let podcastsWithTitle = 0;
+        //   return this.podcastsByTopic.filter(podcast => {
+        //     this.podcastByTopic.forEach
+        //   }
+        // }
+
         get filteredPodcasts() {
           return this.podcastsByTopic.sort((a, b) => {
             if (Number(a.subscribers) > Number(b.subscribers)) {
@@ -33,7 +42,7 @@ class NavigationStore {
     if (tag === undefined) {
       throw new Error('Podcast tag was not defined');
     }
-    const apiGET = `http://gpodder.net/api/2/tag/${tag}/20.json`;
+    const apiGET = `http://gpodder.net/api/2/tag/${tag}/50.json`;
     return (
       fetch(apiGET).then(res => {
         if (res.ok && res.status === 200 && !res.bodyUsed) {

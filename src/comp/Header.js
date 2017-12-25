@@ -52,7 +52,6 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   flex: 1 1 auto;
-  z-index: 99;
   ${media.tabletSmall`
       height: 60px;
   `}
