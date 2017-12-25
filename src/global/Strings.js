@@ -40,7 +40,8 @@ module.exports = {
     },
     category: {
       details: 'Details',
-      popular: 'popular'
+      popular: 'popular',
+      discover: 'discover'
     }
   }
 };

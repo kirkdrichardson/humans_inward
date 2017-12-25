@@ -66,7 +66,7 @@ const Card = styled.div`
   box-sizing: border-box;
   box-shadow: ${color.boxShadow} 1px 1px 6px;
   background: ${color.headerBackground};
-  padding: 14px;
+  padding: 24px;
 `;
 
 const PopularTag = styled.div`

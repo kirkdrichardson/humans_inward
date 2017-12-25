@@ -60,6 +60,8 @@ const FluidContainer = styled.main`
   bottom: 0;
   padding: ${style.fluidContainerPadding};
   background-color: ${color.mainContentBackground};
+  border-top: ${style.border.orangeAccent};
+  border-left: ${style.border.orangeAccent};
   ${media.tabletSmall`
       top: 106px;
       left: 0;
